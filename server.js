@@ -26,7 +26,7 @@ db.connect((err) => {
 // 회원가입 API
 app.post('/signup', (req, res) => {
   const { Username, Email, Password, idnum, address } = req.body;
-  
+
   if (!Username || !Email || !Password || !idnum || !address) {
     return res.status(400).json({ error: 'All fields are required' });
   }
@@ -80,6 +80,27 @@ app.post('/login', (req, res) => {
   });
 });
 
+// 직원 로그인 API 처리
+app.post('/employee-login', (req, res) => {
+    const { Emp_Email, Emp_Password } = req.body;
+
+    // 실제 데이터베이스에서 확인하는 로직이 필요합니다
+    const query = 'SELECT * FROM employees WHERE email = ? AND password = ?';
+    db.query(query, [Emp_Email, Emp_Password], (err, results) => {
+        if (err) {
+            return res.status(500).json({ status: 'error', message: '서버 오류' });
+        }
+        
+        if (results.length > 0) {
+            res.status(200).json({ status: 'success', message: '로그인 성공' });
+        } else {
+            res.status(401).json({ status: 'error', message: '이메일 또는 비밀번호가 잘못되었습니다' });
+        }
+    });
+});
+
+
+
 // 테스트 API
 app.get('/test', (req, res) => {
   res.status(200).json({ message: 'Test successful', status: 'Server is running' });
@@ -89,4 +110,5 @@ app.get('/test', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
+
 

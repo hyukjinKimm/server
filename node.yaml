@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: node-web
-          image: registry.demo.io:5000/node/web:v2
+          image: registry.demo.io:5000/node/web:v3
           ports:
             - containerPort: 3000
 ---

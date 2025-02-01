@@ -1,0 +1,55 @@
+# Node modules
+node_modules/
+
+# npm logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# dotenv environment variable files
+.env
+
+# Next.js build output
+.next/
+
+# Nuxt.js build output
+.nuxt/
+
+# SvelteKit build output
+.svelte-kit/
+
+# Typescript build output
+dist/
+
+# Tyepscript declaration files
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+
+# coverage reports
+coverage/
+
+# npm global package installations
+npm-debug.log*
+
+# Yarn global package installations
+.yarn/
+
+# package-lock.json
+package-lock.json
+
+# yarn.lock
+yarn.lock
+
